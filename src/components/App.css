@@ -1,0 +1,56 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("./img/everest.jpg");
+
+ 
+}
+
+
+/* .wrapp {
+
+ 
+} */
+
+.active {
+  margin: 20px 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+.inactive {
+  display: none;
+}
+
+.active button {
+  margin: 20px 0;
+  padding: 5px 50px;
+  background-color: rgba(175,175,175,.5);
+  border: black solid 2px;
+  /* color: ; */
+  font-size: 30px;
+  border-radius: 10px
+}
+
+/* .active button:nth-of-type(1){
+
+
+} */
+
+.active p {
+  font-size: 50px;
+  text-transform: capitalize
+}
+
+
+
+
+
+
