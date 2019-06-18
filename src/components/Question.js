@@ -19,30 +19,33 @@ const Question = (props) => {
 
 
 
+    if (props.counters < 10) {
+        console.log(props.counters)
 
 
+        const myHandler = (id, anserw) => {
+            if (id === anserw) {
+                props.changeCounter(props.counters)
 
-    const myHandler = (id, anserw) => {
-        if (id === anserw) {
-            props.changeCounter(props.counters)
 
+            }
 
         }
 
-    }
+
+
+        arr = props.item
+
+        if (props.item.length > 0) {
+            anserws.question = arr[counter].question.replace(/%20/g, ' ').replace(/%3F/g, '?').replace(/%28/g, '(').replace(/%29/g, ')').replace(/%2C/g, ',').replace(/%22/g, '"').replace(/%3A/g, ':').replace(/%27/g, "'").replace(/%26/g, "&")
+            console.log(anserws.question)
+
+            anserws.category = arr[counter].category.split(/[%0123456789]/).join(" ")
+            anserws.anserw = arr[counter].correct_answer
+            anserws.all = arr[counter].incorrect_answers
 
 
 
-    arr = props.item
-
-    if (props.item.length > 0) {
-        anserws.question = arr[counter].question.split(/[%0123456789]/).join(" ")
-        anserws.category = arr[counter].category
-        anserws.anserw = arr[counter].correct_answer
-        anserws.all = arr[counter].incorrect_answers
-
-
-        if (anserws.anserw.indexOf("%") !== -1) {
             // eslint-disable-next-line eqeqeq
             if (anserws.anserw.charAt(0) == 7) {
                 let indexChar = anserws.anserw.indexOf("%");
@@ -89,12 +92,12 @@ const Question = (props) => {
 
 
                 for (let i = 0; i < str.length; i++) {
-                    let fixIndexArray = str[i].replace('%20', ' ').replace('%20', ' ');
+                    let fixIndexArray = str[i].replace(/%20/g, ' ').replace(/%27/g, "'").replace(/%2B/g, "+").replace(/%23/g, "#").replace(/%3A/g, ':')
                     anserws.all[i] = fixIndexArray;
 
                 }
 
-                anserws.anserw = arr[counter].correct_answer.replace('%20', ' ')
+                anserws.anserw = arr[counter].correct_answer.replace(/%20/g, ' ').replace(/%3A/g, '').replace(/%27/g, "'").replace(/%23/g, "#")
 
 
 
@@ -102,57 +105,58 @@ const Question = (props) => {
 
             }
 
-        }
-        else {
-
-            anserws.all = arr[counter].incorrect_answers
-            anserws.all = [...anserws.all, arr[counter].correct_answer]
 
         }
-    }
-    //Mixing anserws
-    if (anserws.all.length !== 0) {
-        let currentIndex = anserws.all.length, randomIndex, temporaryValue
-        while (0 !== currentIndex) {
+        //Mixing anserws
+        if (anserws.all.length !== 0) {
+            let currentIndex = anserws.all.length, randomIndex, temporaryValue
+            while (0 !== currentIndex) {
 
 
-            randomIndex = Math.floor(Math.random() * currentIndex);
-            currentIndex -= 1;
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex -= 1;
 
 
-            temporaryValue = anserws.all[currentIndex];
-            anserws.all[currentIndex] = anserws.all[randomIndex];
-            anserws.all[randomIndex] = temporaryValue;
+                temporaryValue = anserws.all[currentIndex];
+                anserws.all[currentIndex] = anserws.all[randomIndex];
+                anserws.all[randomIndex] = temporaryValue;
 
+
+            }
 
         }
 
-    }
-
-    if (props.item.length > 0) {
-        const { question, category, all, anserw } = anserws
+        if (props.item.length > 0) {
+            const { question, category, all, anserw } = anserws
 
 
-        return (
-            <div>
-                <p>{category}</p>
+            return (
+                <div>
+                    <p>{category}</p>
 
-                <ul className="question">
-                    <li>{question}</li>
-                    <li><button onClick={() => myHandler(all[0], anserw)} id={all[0]} >{all[0]}</button></li>
-                    <li><button onClick={() => myHandler(all[1], anserw)} id={all[1]} >{all[1]}</button></li>
-                    <li><button onClick={() => myHandler(all[2], anserw)} id={all[2]} >{all[2]}</button></li>
-                    <li><button onClick={() => myHandler(all[3], anserw)} id={all[3]} >{all[3]}</button></li>
+                    <ul className="question">
+                        <li>{question}</li>
+                        <li><button onClick={() => myHandler(all[0], anserw)} id={all[0]} >{all[0]}</button></li>
+                        <li><button onClick={() => myHandler(all[1], anserw)} id={all[1]} >{all[1]}</button></li>
+                        <li><button onClick={() => myHandler(all[2], anserw)} id={all[2]} >{all[2]}</button></li>
+                        <li><button onClick={() => myHandler(all[3], anserw)} id={all[3]} >{all[3]}</button></li>
 
 
-                </ul>
-                {counter = 11 ? null : <Final />}
+                    </ul>
+                    {counter = 11 ? null : <Final />}
 
-            </div>
-        );
+                </div>
+            );
+        } else {
+            return (
+                <div></div>
+            )
+        }
     } else {
         return (
-            <div></div>
+            <div>
+
+            </div>
         )
     }
 }
