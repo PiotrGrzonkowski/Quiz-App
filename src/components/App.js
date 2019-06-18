@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css'
 import TaskList from './TaskList'
+import FinalScrin from './FinalScrin'
 
 class QuizApp extends Component {
   state = {
@@ -8,6 +9,9 @@ class QuizApp extends Component {
     inactive: false,
     active: true,
     activeTaskList: true,
+    score: 0,
+    mistakes: 0,
+
 
     results: [],
     counter: 0,
@@ -85,7 +89,8 @@ class QuizApp extends Component {
 
 
   render() {
-
+    console.log(this.state.time)
+    const { results, counter, time, score, mistakes } = this.state
     return (
       <div className="wrapp active ">
         <div className={this.state.inactive ? "inactive" : "active"}>
@@ -97,8 +102,10 @@ class QuizApp extends Component {
         </div>
 
 
-        <TaskList change={this.changeActiveTaskList} result={this.state.results} counters={this.state.counter}
+        <TaskList change={this.changeActiveTaskList} result={results} counters={counter}
           changeCounter={this.changeCounter} />
+
+        {this.state.counter === 10 ? <FinalScrin time={time} score={score} mistakes={mistakes} /> : null}
 
 
 
