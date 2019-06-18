@@ -30,35 +30,36 @@ class QuizApp extends Component {
         time,
 
       })
+    let API = '';
 
     if (e.target.id === "film") {
-      const API = "https://opentdb.com/api.php?amount=10&category=21&difficulty=easy&type=multiple&encode=url3986";
-
-      fetch(API)
-        .then(resposne => {
-          if (resposne.ok) {
-            return resposne;
-          }
-          throw Error(resposne.status)
-        })
-        .then(resposne => resposne.json())
-        .then(data => {
-
-          this.setState({
-            results: data.results
-
-          })
-
-        })
-
+      API = "https://opentdb.com/api.php?amount=10&category=11&difficulty=easy&type=multiple&encode=url3986";
 
     } else if (e.target.id === "video game") {
-      console.log("video game")
+      API = 'https://opentdb.com/api.php?amount=10&category=15&difficulty=easy&type=multiple&encode=url3986';
     } else if (e.target.id === "mathematics") {
-      console.log("mathematics")
+      API = 'https://opentdb.com/api.php?amount=10&category=18&difficulty=easy&type=multiple&encode=url3986';
     } else if (e.target.id === "sports") {
-      console.log("sports")
+      API = 'https://opentdb.com/api.php?amount=10&category=21&difficulty=easy&type=multiple&encode=url3986';
     }
+
+    fetch(API)
+      .then(resposne => {
+        if (resposne.ok) {
+          return resposne;
+        }
+        throw Error(resposne.status)
+      })
+      .then(resposne => resposne.json())
+      .then(data => {
+
+        this.setState({
+          results: data.results
+
+        })
+
+      })
+
 
 
   }
@@ -91,7 +92,7 @@ class QuizApp extends Component {
           <p>pick your test</p>
           <button onClick={this.toggleClass} id="film">film</button>
           <button onClick={this.toggleClass} id="video game">video game</button>
-          <button onClick={this.toggleClass} id="mathematics">mathematics</button>
+          <button onClick={this.toggleClass} id="mathematics">Science computers</button>
           <button onClick={this.toggleClass} id="sports">sports</button>
         </div>
 
