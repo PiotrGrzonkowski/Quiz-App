@@ -34,6 +34,7 @@ const Question = (props) => {
 
 
     arr = props.item
+
     if (props.item.length > 0) {
         anserws.question = arr[counter].question.split(/[%0123456789]/).join(" ")
         anserws.category = arr[counter].category
@@ -42,6 +43,7 @@ const Question = (props) => {
 
 
         if (anserws.anserw.indexOf("%") !== -1) {
+            // eslint-disable-next-line eqeqeq
             if (anserws.anserw.charAt(0) == 7) {
                 let indexChar = anserws.anserw.indexOf("%");
                 let firstPartAnserw = anserws.anserw.substring(indexChar, -1);
@@ -51,6 +53,7 @@ const Question = (props) => {
                 let str = anserws.all.join(",").split(/[-,]/);
                 let x = '';
                 let y = '';
+                // eslint-disable-next-line no-unused-vars
                 let newIndex = '';
                 anserws.all = [];
 
@@ -70,22 +73,32 @@ const Question = (props) => {
                     if (x !== "" && y !== "") {
 
                         newIndex = `${x} - ${y}`;
-
                         anserws.all.push(newIndex);
+
                     }
 
-
-                    console.log(anserws.all)
-
                 }
+
 
                 anserws.all = [...anserws.all, anserws.anserw]
 
 
             } else {
 
-                anserws.all = arr[counter].incorrect_answers
-                anserws.all = [...anserws.all, arr[counter].correct_answer]
+                let str = arr[counter].incorrect_answers;
+
+
+                for (let i = 0; i < str.length; i++) {
+                    let fixIndexArray = str[i].replace('%20', ' ').replace('%20', ' ');
+                    anserws.all[i] = fixIndexArray;
+
+                }
+
+                anserws.anserw = arr[counter].correct_answer.replace('%20', ' ')
+
+
+
+                anserws.all = [...anserws.all, anserws.anserw]
 
             }
 
@@ -96,11 +109,23 @@ const Question = (props) => {
             anserws.all = [...anserws.all, arr[counter].correct_answer]
 
         }
+    }
+    //Mixing anserws
+    if (anserws.all.length !== 0) {
+        let currentIndex = anserws.all.length, randomIndex, temporaryValue
+        while (0 !== currentIndex) {
 
 
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
 
 
+            temporaryValue = anserws.all[currentIndex];
+            anserws.all[currentIndex] = anserws.all[randomIndex];
+            anserws.all[randomIndex] = temporaryValue;
 
+
+        }
 
     }
 
