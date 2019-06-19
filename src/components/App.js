@@ -11,10 +11,10 @@ class QuizApp extends Component {
     activeTaskList: true,
     score: 0,
     mistakes: 0,
-
+    counter: 0,
 
     results: [],
-    counter: 0,
+
 
   }
 
@@ -74,23 +74,47 @@ class QuizApp extends Component {
   }
 
 
-  changeCounter = (counter) => {
-    let count = counter;
-    count++
+  changeCounter = (counter, score, mistakes) => {
+    if (score) {
+
+
+      this.setState(prevState => ({
+        counter: prevState.counter + 1,
+        score: prevState.score + 1,
+      }))
+    } else if (mistakes) {
+
+
+      this.setState(prevState => ({
+        counter: prevState.counter + 1,
+        mistakes: prevState.mistakes + 1,
+      }))
+
+    }
+  }
+
+  restart = () => {
     this.setState({
-      counter: count
+      time: "",
+      inactive: false,
+      active: true,
+      activeTaskList: true,
+      score: 0,
+      mistakes: 0,
+      counter: 0,
+
+      results: [],
+
     })
-
-
 
   }
 
-
-
-
   render() {
-    console.log(this.state.time)
+
     const { results, counter, time, score, mistakes } = this.state
+    console.log(score)
+    console.log(mistakes)
+    console.log(counter)
     return (
       <div className="wrapp active ">
         <div className={this.state.inactive ? "inactive" : "active"}>
@@ -105,7 +129,7 @@ class QuizApp extends Component {
         <TaskList change={this.changeActiveTaskList} result={results} counters={counter}
           changeCounter={this.changeCounter} />
 
-        {this.state.counter === 10 ? <FinalScrin time={time} score={score} mistakes={mistakes} /> : null}
+        {this.state.counter === 10 ? <FinalScrin time={time} score={score} mistakes={mistakes} restart={this.restart} /> : null}
 
 
 

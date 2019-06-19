@@ -9,8 +9,6 @@ class TaksList extends Component {
   state = {
     activeTaskList: true,
     qustions: [],
-    score: 0,
-
 
   }
 

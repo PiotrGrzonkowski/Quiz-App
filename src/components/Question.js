@@ -20,14 +20,18 @@ const Question = (props) => {
 
 
     if (props.counters < 10) {
-        console.log(props.counters)
+
 
 
         const myHandler = (id, anserw) => {
             if (id === anserw) {
-                props.changeCounter(props.counters)
-
-
+                const score = 1;
+                const mistakes = 0;
+                props.changeCounter(props.counters, score, mistakes)
+            } else if (id !== anserw) {
+                const mistakes = 1;
+                const score = 0;
+                props.changeCounter(props.counters, score, mistakes)
             }
 
         }
@@ -37,7 +41,7 @@ const Question = (props) => {
         arr = props.item
 
         if (props.item.length > 0) {
-            anserws.question = arr[counter].question.replace(/%20/g, ' ').replace(/%3F/g, '?').replace(/%28/g, '(').replace(/%29/g, ')').replace(/%2C/g, ',').replace(/%22/g, '"').replace(/%3A/g, ':').replace(/%27/g, "'").replace(/%26/g, "&")
+            anserws.question = arr[counter].question.replace(/%20/g, ' ').replace(/%3F/g, '?').replace(/%28/g, '(').replace(/%29/g, ')').replace(/%2C/g, ',').replace(/%22/g, '"').replace(/%3A/g, ':').replace(/%27/g, "'").replace(/%26/g, "&").replace(/%60/g, "`")
             console.log(anserws.question)
 
             anserws.category = arr[counter].category.split(/[%0123456789]/).join(" ")
@@ -127,7 +131,7 @@ const Question = (props) => {
         }
 
         if (props.item.length > 0) {
-            const { question, category, all, anserw } = anserws
+            const { question, category, all, anserw, } = anserws
 
 
             return (
