@@ -25,7 +25,7 @@ class QuizApp extends Component {
     const active = this.state.active;
     const time = new Date().getTime();
     const activeTaskList = this.state.activeTaskList;
-    this.changeActiveTaskList();
+
     this.setState(
       {
         inactive: !inactive,
@@ -35,6 +35,7 @@ class QuizApp extends Component {
 
       })
     let API = '';
+
 
     if (e.target.id === "film") {
       API = "https://opentdb.com/api.php?amount=10&category=11&difficulty=easy&type=multiple&encode=url3986";
@@ -67,14 +68,10 @@ class QuizApp extends Component {
 
 
   }
-  changeActiveTaskList = () => {
-
-    const taskList = this.state.activeTaskList
-    return taskList
-  }
 
 
-  changeCounter = (counter, score, mistakes) => {
+
+  changeCounter = (score, mistakes) => {
     if (score) {
 
 
@@ -106,15 +103,14 @@ class QuizApp extends Component {
       results: [],
 
     })
-
+   
   }
 
   render() {
 
+
     const { results, counter, time, score, mistakes } = this.state
-    console.log(score)
-    console.log(mistakes)
-    console.log(counter)
+
     return (
       <div className="wrapp active ">
         <div className={this.state.inactive ? "inactive" : "active"}>
@@ -126,8 +122,7 @@ class QuizApp extends Component {
         </div>
 
 
-        <TaskList change={this.changeActiveTaskList} result={results} counters={counter}
-          changeCounter={this.changeCounter} />
+        <TaskList  result={results} counters={counter} changeCounter={this.changeCounter}/>
 
         {this.state.counter === 10 ? <FinalScrin time={time} score={score} mistakes={mistakes} restart={this.restart} /> : null}
 

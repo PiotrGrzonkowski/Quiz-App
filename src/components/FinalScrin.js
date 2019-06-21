@@ -1,4 +1,5 @@
 import React from 'react';
+import './FinalScrin.css';
 
 const FinalScrin = (props) => {
     const { time, score, mistakes } = props;
@@ -10,9 +11,9 @@ const FinalScrin = (props) => {
     }
 
     return (
-        <div>
+        <div className="final">
             <ul>
-                <li>You did it : {`${Math.floor((milis / 1000) % 60)}s`} </li>
+                <li>Your time : {`${Math.floor((milis / 1000) % 60)}s`} </li>
                 <li>You scored points : {score} </li>
                 <li>You made mistakes : {mistakes} </li>
                 <li><button onClick={() => restart()} >Again?</button></li>
