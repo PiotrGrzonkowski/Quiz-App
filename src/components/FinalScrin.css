@@ -1,8 +1,39 @@
- div.final  {
-    margin: 3px 0;
-    padding: 4px 5px;
-    background-color:  rgba(200,200,200,.8);
-     font-size: 20px;
-    border-radius: 10px;
-   text-align: center;
-  }
+ @media (orientation: portrait) {
+
+    div.final {
+       margin: 200px 0;
+       padding: 4px 5px;
+       background-color: rgba(200, 200, 200, .8);
+       font-size: 30px;
+       border-radius: 10px;
+       text-align: center;
+    }
+ }
+
+ @media (max-width:1024px) and (orientation: landscape) {
+
+    div.final {
+       margin: calc(50% - 250px) 0;
+       padding: 4px 5px;
+       background-color: rgba(200, 200, 200, .8);
+       font-size: 30px;
+       border-radius: 10px;
+       text-align: center;
+    }
+ }
+
+ @media (min-width:1025px) and (max-width:2049px) and (orientation: landscape) {
+
+    div.final {
+       position: absolute;
+       top: 50%;
+       left: 50%;
+       margin: 10px 0;
+       padding: 4px 5px;
+       background-color: rgba(200, 200, 200, .8);
+       font-size: 30px;
+       border-radius: 10px;
+       text-align: center;
+       transform: translate(-50%, -50%)
+    }
+ }

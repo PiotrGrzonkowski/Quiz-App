@@ -1,133 +1,145 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-transform: uppercase;
 }
 
-@media (max-width:1024px)and (orientation: portrait) {
+@media (max-width:1025px) and (orientation: portrait) {
 
-body {
-  background-image: url("./img/everest.jpg");
-  background-position: top;
-   background-repeat: no-repeat;
+  body {
+    background-image: url("./img/everest.jpg");
+    background-position: top;
+    background-repeat: no-repeat;
+  }
 
- 
-}
+  .active {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
-.active {
-  margin: 20px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  }
 
-}
-.inactive {
-  display: none;
-}
+  .inactive {
+    display: none;
+  }
 
-.active button {
-  margin: 20px 0;
-  padding: 5px 50px;
-  background-color: rgba(200,200,200,.8);
-  border: black solid 4px;
-   font-size: 25px;
-  border-radius: 10px
-}
+  .active button {
+    margin: 20px 0;
+    padding: 5px 50px;
+    background-color: rgba(200, 200, 200, .8);
+    border: black solid 4px;
+    font-size: 25px;
+    border-radius: 10px
+  }
 
 
-.active p {
-  font-size: 50px;
-  text-transform: capitalize
+  .active p {
+    margin: 20px 0;
+    padding: 5px 50px;
+    background-color: rgba(200, 200, 200, .8);
+    font-size: 35px;
+    border-radius: 10px
+  }
+
 }
 
 div.final ul li {
-  background-color: rgba(200,200,200,.8);
-}
-
-}
-
-@media (max-width:640px)and (orientation: landscape) {
-
-body {
-  background-image: url("./img/everest.jpg");
-  background-position: center -20vh;
-  background-repeat: no-repeat;
-
- 
+  background-color: rgba(200, 200, 200, .8);
 }
 
 
 
-.active {
-  margin: 10px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-
-}
-.inactive {
-  display: none;
-}
-
-
-.active button {
-  margin: 8px 0;
-  padding: 5px 50px;
-  background-color: rgba(200,200,200,.8);
-  border: black solid 4px;
-  font-size: 20px;
-  border-radius: 10px
-}
-
-.active p {
-  font-size: 40px;
-  text-transform: capitalize
-}
-
-
-}
-
-@media (max-width:4096px)and (orientation: landscape) {
+@media (max-width:1024px) and (orientation: landscape) {
 
   body {
     background-image: url("./img/everest.jpg");
     background-position: center -20vh;
     background-repeat: no-repeat;
-  
-   
   }
-  
-  
-  
+
+
+
   .active {
     margin: 10px 0;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-  
+
   }
+
   .inactive {
     display: none;
   }
-  
-  
+
+
   .active button {
     margin: 8px 0;
     padding: 5px 50px;
-    background-color: rgba(200,200,200,.8);
+    background-color: rgba(200, 200, 200, .8);
     border: black solid 4px;
     font-size: 20px;
     border-radius: 10px
   }
-  
+
   .active p {
     font-size: 40px;
-    text-transform: capitalize
+    margin: 8px 0;
+    padding: 5px 50px;
+    background-color: rgba(200, 200, 200, .8);
+    font-size: 20px;
+    border-radius: 10px;
+    font-weight: 800
   }
-  
-  
+
+
+}
+
+
+@media (min-width:1025px) and (max-width:2049px) and (orientation: landscape) {
+
+  body {
+    background-image: url("./img/everest.jpg");
+    background-position: center top;
+    background-repeat: no-repeat;
+    height: 100vh;
+
+
   }
-  
+
+  .active {
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+  }
+
+  .inactive {
+    display: none;
+  }
+
+
+  .active button {
+    margin: 30px 0;
+    padding: 5px 50px;
+    background-color: rgba(200, 200, 200, .8);
+    border: black solid 4px;
+    font-size: 40px;
+    border-radius: 10px
+  }
+
+  .active p {
+    margin: 30px 0;
+    padding: 5px 50px;
+    background-color: rgba(200, 200, 200, .8);
+    font-size: 50px;
+    border-radius: 10px
+  }
+
+
+}
