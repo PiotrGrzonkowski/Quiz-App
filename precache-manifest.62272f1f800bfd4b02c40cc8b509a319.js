@@ -1,18 +1,18 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "afcbab8e66f936319011dafd6d2e6016",
+    "revision": "2ac7164be2b6a58602fd64163d9756ea",
     "url": "/Quiz-App/index.html"
   },
   {
-    "revision": "27c13446fc66c8279f90",
-    "url": "/Quiz-App/static/css/main.dd0aa51b.chunk.css"
+    "revision": "bab88c660baebaebe3c8",
+    "url": "/Quiz-App/static/css/main.809f76be.chunk.css"
   },
   {
     "revision": "d27dcead68faee6d2b37",
     "url": "/Quiz-App/static/js/2.44949046.chunk.js"
   },
   {
-    "revision": "27c13446fc66c8279f90",
+    "revision": "bab88c660baebaebe3c8",
     "url": "/Quiz-App/static/js/main.dff142b5.chunk.js"
   },
   {
