@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Quiz-App/static/css/main.49d4b763.chunk.css",
+    "main.css": "/Quiz-App/static/css/main.dd0aa51b.chunk.css",
     "main.js": "/Quiz-App/static/js/main.dff142b5.chunk.js",
     "main.js.map": "/Quiz-App/static/js/main.dff142b5.chunk.js.map",
     "runtime~main.js": "/Quiz-App/static/js/runtime~main.9f56f2ee.js",
@@ -8,9 +8,9 @@
     "static/js/2.44949046.chunk.js": "/Quiz-App/static/js/2.44949046.chunk.js",
     "static/js/2.44949046.chunk.js.map": "/Quiz-App/static/js/2.44949046.chunk.js.map",
     "index.html": "/Quiz-App/index.html",
-    "precache-manifest.9be272f685f443625ce3539ca23cf137.js": "/Quiz-App/precache-manifest.9be272f685f443625ce3539ca23cf137.js",
+    "precache-manifest.ae359a78f8c1edf34b3f9394a3d30d19.js": "/Quiz-App/precache-manifest.ae359a78f8c1edf34b3f9394a3d30d19.js",
     "service-worker.js": "/Quiz-App/service-worker.js",
-    "static/css/main.49d4b763.chunk.css.map": "/Quiz-App/static/css/main.49d4b763.chunk.css.map",
+    "static/css/main.dd0aa51b.chunk.css.map": "/Quiz-App/static/css/main.dd0aa51b.chunk.css.map",
     "static/media/App.css": "/Quiz-App/static/media/everest.2c9ab5cc.jpg"
   }
 }
